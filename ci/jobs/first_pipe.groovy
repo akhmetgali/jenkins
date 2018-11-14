@@ -1,5 +1,6 @@
 #!groovy
-import com.test.ci
+@Library(value='jenkins@master', changelog=false) _
+import com.test.ci.Commands
 
 def cmds = new Commands()
 def buildStatus = "FAILED"
