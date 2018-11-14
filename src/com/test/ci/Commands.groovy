@@ -39,7 +39,7 @@ def installRuby(String jenkinsHome, String repositoryUrl, String branch) {
             ]
         ]
     ])
-    sh: "ls -la"
+    sh script: "ls -la"
     // sh script: "chmod +x ${jenkinsHome}/infra_demo/scripts/install_ruby.sh"
     // sh script: ".${jenkinsHome}/infra_demo/scripts/install_ruby.sh"
     return this
