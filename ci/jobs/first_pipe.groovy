@@ -1,5 +1,5 @@
 #!groovy
-// @Library(value='jenkins@master', changelog=false) _
+@Library(value='jenkins@master', changelog=false) _
 import com.test.ci.Commands
 
 def cmds = new Commands()
