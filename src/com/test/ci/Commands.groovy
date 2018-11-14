@@ -27,18 +27,7 @@ def checkoutSource(String gitCredentialId, String repositoryUrl, String branch, 
 }
 
 def installRuby(String repositoryUrl, String branch) {
-    def cloneRepo = checkout([
-        scm     : [
-            $class      : 'GitSCM',
-            branches    : [[name: "${branch ?: 'master'}"]],
-            extensions  : [
-                    [$class: 'CloneOption', shallow: false, depth: 1]
-            ],
-            userRemoteConfigs: [
-                    [credentialsId: gitCredentialId, url: repositoryUrl]
-            ]
-        ]
-    ])
+    
     sh script: "pwd"
     sh script: "chmod +x scripts/install_ruby.sh"
     sh script: "./scripts/install_ruby.sh"
