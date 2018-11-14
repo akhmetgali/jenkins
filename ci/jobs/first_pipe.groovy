@@ -28,7 +28,7 @@ pipeline {
         stage('Install ruby') {
             steps {
                 script {
-                    cmds.installRuby("${HOME}")
+                    cmds.installRuby("${HOME}", "${repository}")
                 }
             }
         }
