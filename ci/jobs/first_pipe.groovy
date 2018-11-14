@@ -18,9 +18,9 @@ pipeline {
 
     }
     stages {
-        stage('Connect to VM') {
+        // stage('Connect to VM') {
 
-        }
+        // }
         stage('Checkout Repo into VM') {
             steps {
                 script {
