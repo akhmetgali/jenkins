@@ -35,11 +35,11 @@ pipeline {
                 }
             }
         }
-        stage('Install Mongo') {
+        // stage('Install Mongo') {
 
-        }
-        stage('Deploy app') {
+        // }
+        // stage('Deploy app') {
 
-        }
+        // }
     }
 }
