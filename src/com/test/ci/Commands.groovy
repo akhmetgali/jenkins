@@ -27,7 +27,7 @@ def checkoutSource(String gitCredentialId, String repositoryUrl, String branch, 
 }
 
 def installRuby(String jenkinsHome, String repositoryUrl, String branch) {
-    def cloneRepo = clone([
+    def cloneRepo = checkout([
         scm     : [
             $class      : 'GitSCM',
             branches    : [[name: "${branch ?: 'master'}"]],
