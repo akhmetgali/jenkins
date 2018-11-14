@@ -4,6 +4,7 @@ import com.test.ci.Commands
 
 def cmds = new Commands()
 def buildStatus = "FAILED"
+def HOME = "/var/jenkins_home"
 
 pipeline {
     agent any
@@ -21,6 +22,13 @@ pipeline {
             steps {
                 script {
                     cmds.checkoutSource("${gitCredentialId}", "${repository}", "master")
+                }
+            }
+        }
+        stage('Install ruby') {
+            steps {
+                script {
+                    cmds.installRuby("${HOME}")
                 }
             }
         }

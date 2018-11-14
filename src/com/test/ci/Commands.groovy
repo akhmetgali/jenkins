@@ -25,3 +25,9 @@ def checkoutSource(String gitCredentialId, String repositoryUrl, String branch, 
     
     return gitStatus
 }
+
+def installRuby(String jenkinsHome) {
+    sh script: "chmod +x ${jenkinsHome}/infra_demo/scripts/install_ruby.sh"
+    sh script: ".${jenkinsHome}/infra_demo/scripts/install_ruby.sh"
+    return this
+}
