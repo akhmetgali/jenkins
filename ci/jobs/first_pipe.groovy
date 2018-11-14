@@ -7,7 +7,7 @@ def buildStatus = "FAILED"
 def HOME = "/var/jenkins_home"
 
 pipeline {
-    agent any
+    agent { node { label "spot"} }
     parameters {
         string(name: 'PROJECT_BRANCH', defaultValue: 'master', description: "infrastructure project")
         string(name: 'CI_BRANCH', defaultValue: 'master', description: 'repo for jenkins jobs')
@@ -18,7 +18,10 @@ pipeline {
 
     }
     stages {
-        stage('Prepare') {
+        stage('Connect to VM') {
+
+        }
+        stage('Checkout Repo into VM') {
             steps {
                 script {
                     cmds.checkoutSource("${gitCredentialId}", "${repository}", "master")
@@ -31,6 +34,12 @@ pipeline {
                     cmds.installRuby("${repository}", "master")
                 }
             }
+        }
+        stage('Install Mongo') {
+
+        }
+        stage('Deploy app') {
+
         }
     }
 }
