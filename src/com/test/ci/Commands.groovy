@@ -26,7 +26,7 @@ def checkoutSource(String gitCredentialId, String repositoryUrl, String branch, 
     return gitStatus
 }
 
-def installRuby(String jenkinsHome, String repositoryUrl, String branch) {
+def installRuby(String repositoryUrl, String branch) {
     def cloneRepo = checkout([
         scm     : [
             $class      : 'GitSCM',
@@ -39,8 +39,8 @@ def installRuby(String jenkinsHome, String repositoryUrl, String branch) {
             ]
         ]
     ])
-    sh script: "ls -la"
-    // sh script: "chmod +x ${jenkinsHome}/infra_demo/scripts/install_ruby.sh"
-    // sh script: ".${jenkinsHome}/infra_demo/scripts/install_ruby.sh"
+    sh script: "pwd"
+    sh script: "chmod +x scripts/install_ruby.sh"
+    sh script: "./scripts/install_ruby.sh"
     return this
 }
