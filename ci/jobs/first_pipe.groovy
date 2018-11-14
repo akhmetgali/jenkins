@@ -19,7 +19,9 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                echo "Hello world"
+                script {
+                    cmds.checkoutSource("${gitCredentialId}", "${repository}", "master")
+                }
             }
         }
     }
