@@ -32,8 +32,7 @@ def installRuby(String jenkinsHome, String repositoryUrl, String branch) {
             $class      : 'GitSCM',
             branches    : [[name: "${branch ?: 'master'}"]],
             extensions  : [
-                    [$class: 'CloneOption', shallow: false, depth: 1],
-                    [$class: 'RelativeTargetDirectory', relativeTargetDir: relativeTargetDir ?: ""]
+                    [$class: 'CloneOption', shallow: false, depth: 1]
             ],
             userRemoteConfigs: [
                     [credentialsId: gitCredentialId, url: repositoryUrl]
